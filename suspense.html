@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>One More Thing…</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2>Okay… pause 😌</h2>
+    <p>
+      There’s something I’ve been wanting to ask you.  
+      Something simple…  
+      But also really important to me.
+    </p>
+
+    <p><em>Before you answer — take a deep breath.</em></p>
+
+    <button onclick="finalStep()">I'm ready &#x2764;</button>
+  </div>
+
+  <script>
+    // Block skipping
+    if (!sessionStorage.getItem("step2")) {
+      window.location.href = "index.html";
+    }
+
+    function finalStep() {
+      sessionStorage.setItem("step3", "true");
+      window.location.href = "valentine.html";
+    }
+  </script>
+
+</body>
+</html>

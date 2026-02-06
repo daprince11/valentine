@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hey You</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hey… 💭</h1>
+    <p>
+      I made something for you.  
+      Not a text.  
+      Not a message.  
+      Something a little more special.
+    </p>
+
+    <p><strong>Promise you won’t rush?</strong></p>
+
+    <button onclick="startJourney()">
+      I promise 
+    </button>
+  </div>
+
+  <script>
+    // Reset journey on fresh start
+    sessionStorage.clear();
+
+    function startJourney() {
+      sessionStorage.setItem("step1", "true");
+      window.location.href = "memories.html";
+    }
+  </script>
+
+</body>
+</html>

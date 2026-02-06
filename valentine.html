@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Question</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #no {
+      background: #f1f1f1;
+      color: #333;
+      cursor: not-allowed;
+      opacity: 0.8;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>So…</h1>
+    <h2>Will you be my Valentine?</h2>
+
+    <button onclick="yes()">Yes 💖</button>
+    <button id="no" disabled>No 🙈</button>
+
+    <p id="reply" style="display:none; margin-top:20px;">
+      You just made my heart really happy 🥰  
+      Happy Valentine’s Day ❤️
+      <a style="font-style: italic; color: #e63946;"
+      ><br>screenshot this page and send to me</a>
+    </p>
+    
+  </div>
+
+  <script>
+    // Block skipping
+    if (!sessionStorage.getItem("step3")) {
+      window.location.href = "index.html";
+    }
+
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseenter", () => {
+      noBtn.style.position = "absolute";
+      noBtn.style.left = Math.random() * 80 + "%";
+      noBtn.style.top = Math.random() * 80 + "%";
+    });
+
+    noBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    function yes() {
+      document.getElementById("reply").style.display = "block";
+
+      // Mark completed journey
+      sessionStorage.setItem("final", "yes");
+    }
+
+    // Refresh after YES → restart entire journey
+    if (sessionStorage.getItem("final") === "yes") {
+      sessionStorage.clear();
+      window.location.href = "index.html";
+    }
+  </script>
+
+
+</body>
+</html>

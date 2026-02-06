@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2>You know what I love about you?</h2>
+    <p>
+      It's the little things.  
+      The way you make ordinary moments feel special.  
+      The way you exist and somehow make my days better.
+    </p>
+
+    <p>
+      I catch myself smiling for no reason…  
+      Then I realize — it's you.
+    </p>
+
+    <button onclick="nextStep()">Keep going &#x1F60A;</button>
+  </div>
+
+  <script>
+    // Block skipping
+    if (!sessionStorage.getItem("step1")) {
+      window.location.href = "index.html";
+    }
+
+    function nextStep() {
+      sessionStorage.setItem("step2", "true");
+      window.location.href = "suspense.html";
+    }
+  </script>
+
+</body>
+</html>
